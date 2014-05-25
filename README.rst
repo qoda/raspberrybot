@@ -1,6 +1,6 @@
 RaspberryBot (0.1.0)
 ====================
-A Simple Robot utilising a RaspberryPi and Raspirobot Board.
+A Simple WiFi Controlled RaspberryPi Robot.
 
 .. contents::
 
