@@ -1,0 +1,4 @@
+Django>=1.6
+rpi.gpio==0.5.5
+pyserial==2.7
+git+https://github.com/simonmonk/raspirobotboard.git
