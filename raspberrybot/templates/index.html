@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
-{% block content %}
-  <div>
+{% load staticfiles %}
 
-  </div>
+{% block content %}
+    <div class="row centre-box">
+        <div class="col-md-4">
+            <p><img class="btn-command" src="{% static 'img/icons/arrow_left.png' %}" data-command="left" /></p>
+        </div>
+        <div class="col-md-4">
+            <p><img class="btn-command" src="{% static 'img/icons/arrow_up.png' %}" data-command="forward" /></p>
+        </div>
+        <div class="col-md-4">
+            <p><img class="btn-command" src="{% static 'img/icons/arrow_right.png' %}" data-command="right" /></p>
+        </div>
+    </div>
 {% endblock content %}
