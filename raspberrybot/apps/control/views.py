@@ -1,6 +1,9 @@
 from django.views import generic
 
-import raspirobotboard
+try:
+    import raspirobotboard
+except ImportError:
+    from raspberrybot import fake_raspirobotboard as raspirobotboard
 
 from raspberrybot.decorators import json_response
 

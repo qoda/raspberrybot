@@ -7,7 +7,7 @@ class ControlTestCase(TestCase):
         self.client = Client()
 
     def test_view_command(self):
-        self.client.get(reverse_lazy('control:command'))
+        self.client.get(reverse_lazy('control:command', kwargs={'direction': 'forward'}))
 
     def tearDown(self):
         pass
