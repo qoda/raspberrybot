@@ -1,0 +1,12 @@
+.installed.cfg
+.DS_Store
+.Python
+*.egg-info/
+*.pyc
+*.komodoproject
+*.db
+*._
+bin/
+include/
+lib/
+*.tar.bz2
