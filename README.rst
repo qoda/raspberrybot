@@ -1,6 +1,6 @@
 RaspberryBot (0.1.0)
 ====================
-A Simple Robot utilising a RaspberryPi and Raspirobot Board.
+A Simple WiFi Controlled RaspberryPi Robot.
 
 .. contents::
 
@@ -22,3 +22,18 @@ Setup Development Environment::
 
     # running the server
     (raspberrybot)$ ./manage.py runserver
+
+Production
+-----------
+
+Setup Production Environment::
+
+    $ virtualenv .
+    $ pip install https://github.com/qoda/raspberrybot.git
+    $ . bin/activate
+
+    # running the tests
+    (raspberrybot)$ django-admin.py test
+
+    # running the server
+    (raspberrybot)$ django-admin.py runserver <ip_adress> <port>

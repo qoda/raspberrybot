@@ -1,3 +1,13 @@
-from django.test import TestCase
+from django.core.urlresolvers import reverse_lazy
+from django.test import Client, TestCase
 
-# Create your tests here.
+
+class ControlTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_view_command(self):
+        self.client.get(reverse_lazy('control:command', kwargs={'direction': 'forward'}))
+
+    def tearDown(self):
+        pass
