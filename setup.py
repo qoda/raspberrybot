@@ -25,7 +25,6 @@ setup(
     install_requires=[
         'Django>=1.6',
         'rpi.gpio==0.5.5',
-        'pyserial==2.7',
         'raspirobotboard==1.0'
     ],
     scripts=[]
