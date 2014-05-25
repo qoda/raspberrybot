@@ -7,6 +7,12 @@ A Simple WiFi Controlled RaspberryPi Robot.
 Development
 -----------
 
+Requirements:
+
+* git
+* python-pip
+* python-virtualenv
+
 Setup Development Environment::
 
     $ git clone git@github.com:qoda/raspberrybot.git
@@ -25,6 +31,13 @@ Setup Development Environment::
 
 Production
 -----------
+
+Requirements:
+
+* git
+* python-pip
+* python-virtualenv
+* RPi
 
 Setup Production Environment::
 
