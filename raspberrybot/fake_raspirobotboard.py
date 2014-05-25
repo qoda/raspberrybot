@@ -6,4 +6,7 @@ class RaspiRobot(object):
     """
     def __init__(self):
         for direction in ['forward', 'reverse', 'stop', 'left', 'right']:
-            self.__setattr__(direction, lambda direction: direction)
+            self.__setattr__(direction, self.command)
+
+    def command(self):
+        pass

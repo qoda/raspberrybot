@@ -16,13 +16,13 @@ class CommandView(generic.View):
     Execute the command via gpio.
     """
     @json_response
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         direction = kwargs.get('direction')
         success = direction in VALID_COMMANDS
 
         if success:
             robot_control = raspirobotboard.RaspiRobot()
-            getattr(robot_control, self.command)()
+            getattr(robot_control, direction)()
 
         return {
             'success': success,
