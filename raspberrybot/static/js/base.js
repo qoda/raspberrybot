@@ -30,6 +30,32 @@ initKeyboardControls = function () {
     console.log(current_command);
 }
 
+initButtonControls = function () {
+    var current_command = null;
+
+    // execute command depending on the button pressed
+    $(".btn-command").mousedown(function(event){
+        var event_command = $(this).data('command');
+        if (current_command != event_command) {
+            $.get("/control/" + event_command + "/");
+            current_command = event_command;
+        }
+
+    });
+
+    // send stop command on keyup
+    $(".btn-command").mouseup(function(event){
+        if (current_command != 'stop') {
+            $.get("/control/stop/");
+            current_command = 'stop';
+        }
+    });
+
+    // log the command to console
+    console.log(current_command);
+}
+
 $(document).ready( function () {
     initKeyboardControls();
+    initButtonControls();
 });
