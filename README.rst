@@ -15,10 +15,10 @@ Setup Development Environment::
     $ . bin/activate
 
     # install the requirements
-    (bushlog)$ pip install -r requirements.pip
+    (raspberrybot)$ pip install -r requirements.pip
 
     # running the tests
-    (bushlog)$ ./manage.py test
+    (raspberrybot)$ ./manage.py test
 
     # running the server
-    (bushlog)$ ./manage.py runserver
+    (raspberrybot)$ ./manage.py runserver
