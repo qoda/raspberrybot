@@ -1,7 +1,7 @@
 initKeyboardControls = function () {
 
     // map key code to command verb
-    var current_command = null;
+    var current_command = 'stop';
     var command_map = {
         37: 'left',
         38: 'forward',
@@ -12,17 +12,16 @@ initKeyboardControls = function () {
     $(document).keydown(function(event){
         var event_command = command_map[event.keyCode];
         if ((event_command != undefined) && (current_command != event_command)) {
-            $.get("/control/" + event_command + "/");
             current_command = event_command;
+            $.get("/control/" + event_command + "/");
         }
-
     });
 
     // send stop command on keyup
     $(document).keyup(function(event){
         if (current_command != 'stop') {
-            $.get("/control/stop/");
             current_command = 'stop';
+            $.get("/control/stop/");
         }
     });
 
@@ -31,25 +30,25 @@ initKeyboardControls = function () {
 }
 
 initButtonControls = function () {
-    var current_command = null;
+    var current_command = 'stop';
 
     // execute command depending on the button pressed
-    $(".btn-command").mousedown(function(event){
+    $(".btn-command").on({'touchstart mousedown': function(event){
         var event_command = $(this).data('command');
         if (current_command != event_command) {
-            $.get("/control/" + event_command + "/");
             current_command = event_command;
-        }
+            $.get("/control/" + event_command + "/");
 
-    });
+        }
+    }});
 
     // send stop command on keyup
-    $(".btn-command").mouseup(function(event){
+    $(".btn-command").on({'touchend mouseup': function(event){
         if (current_command != 'stop') {
-            $.get("/control/stop/");
             current_command = 'stop';
+            $.get("/control/stop/");
         }
-    });
+    }});
 
     // log the command to console
     console.log(current_command);
