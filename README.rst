@@ -1,4 +1,4 @@
-RaspberryBot (0.1.4)
+RaspberryBot (0.1.5)
 ====================
 A Simple WiFi Controlled RaspberryPi Robot.
 
@@ -42,7 +42,7 @@ Requirements:
 Setup Production Environment::
 
     $ virtualenv .
-    $ pip install https://github.com/qoda/raspberrybot.git@0.1.4
+    $ pip install https://github.com/qoda/raspberrybot.git@0.1.5
     $ . bin/activate
 
     # running the tests
