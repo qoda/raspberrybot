@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <img src="{{ request.META.HTTP_HOST|slice:"-5" }}:8090/?action=stream" width="100%">
+    <img src="http://{{ request.META.HTTP_HOST|slice:"-5" }}:8090/?action=stream" width="100%">
     <div class="container-fluid">
         {% block content %}{% endblock %}
     </div>
