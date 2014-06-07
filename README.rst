@@ -1,4 +1,4 @@
-RaspberryBot (0.1.6)
+RaspberryBot (0.1.7)
 ====================
 A Simple WiFi Controlled RaspberryPi Robot.
 
@@ -43,7 +43,7 @@ Setup Production Environment::
 
     $ virtualenv .
     $ . bin/activate
-    $ pip install git+https://github.com/qoda/raspberrybot.git@0.1.6
+    $ pip install git+https://github.com/qoda/raspberrybot.git@0.1.7
 
     # running the tests
     (raspberrybot)$ django-admin.py test
