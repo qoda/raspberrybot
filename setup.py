@@ -7,7 +7,7 @@ setup(
 
     # project description
     name='raspberrybot',
-    version='0.1.7',
+    version='0.1.8',
     description='A Simple WiFi Controlled RaspberryPi Robot',
     long_description="%s\n\n%s" % (open('README.rst', 'r').read(), open('AUTHORS.rst', 'r').read()),
     author='Jonathan Bydendyk',
