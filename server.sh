@@ -1,4 +1,4 @@
-mjpg_streamer -i "/usr/lib/input_uvc.so -y -d /dev/video0" -o "/usr/lib/output_http.so -p 8090" &
+mjpg_streamer -i "input_uvc.so -y -q 95 -f 15 -d /dev/video0" -o "output_http.so -p 8090" &
 ms_pid=$!
 
 export DJANGO_SETTINGS_MODULE='raspberrybot.settings'
