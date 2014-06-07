@@ -27,5 +27,7 @@ setup(
         'rpi.gpio==0.5.5',
         'raspirobotboard==1.0'
     ],
-    scripts=[]
+    scripts=[
+        'server.sh'
+    ]
 )
