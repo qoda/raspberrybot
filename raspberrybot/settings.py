@@ -37,7 +37,8 @@ INSTALLED_APPS = (
 
     # custom apps
     'raspberrybot',
-    'raspberrybot.apps.control'
+    'raspberrybot.apps.control',
+    'raspberrybot.apps.vision'
 )
 
 # List of template context loaders
