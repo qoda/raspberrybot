@@ -1,26 +1,26 @@
+import time
+
 from django.core.management.base import BaseCommand
 
-from bushlog.apps.location.models import Coordinate, Polygon
+from SimpleCV import Camera, JpegStreamer
 
 
 class Command(BaseCommand):
-    args = 'coordinate_file'
-    help = "Import border coordinates from file."
+    args = ''
+    help = "Start the video stream."
 
     def handle(self, *args, **options):
-        coordinate_input = open(args[0]).read()
-        polygon = Polygon.objects.create()
+        host = options.get('host', '0.0.0.0')
+        port = options.get('port', '8090')
+        host_camera = options.get('host_camera', 0)
 
-        # parse the input file and create the coordinate
-        lines = coordinate_input.split(';')
-        for line in lines:
-            latitude, longitude = line.split(',')
-            obj = Coordinate.objects.create(
-                polygon=polygon,
-                latitude=latitude,
-                longitude=longitude
-            )
-            print "Coordinate created: ", obj.id
+        # setup the stream
+        camera = Camera(host_camera)
+        stream = JpegStreamer("%s:%s" % (host, port))
 
-        print "**************************"
-        print "Border polygon created: ", polygon.id
+        while True:
+            image = camera.getImage()
+            image.save(stream)
+
+            # ensure it sleeps for as long as the fps in this case 10 fps
+            time.sleep(0.1)
