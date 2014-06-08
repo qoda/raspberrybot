@@ -25,7 +25,12 @@ setup(
     install_requires=[
         'Django>=1.6',
         'rpi.gpio==0.5.5',
-        'raspirobotboard==1.0'
+        'raspirobotboard==1.0',
+        'numpy==1.8.1',
+        'PIL==1.1.7',
+        'scipy==0.13.3',
+        'pygame==1.9.1release',
+        'SimpleCV==1.3'
     ],
     scripts=[]
 )
