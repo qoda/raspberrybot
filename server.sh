@@ -1,3 +1,6 @@
-mjpg_streamer -i "/usr/lib/input_uvc.so -y -d /dev/video0" -o "/usr/lib/output_http.so -p 8090"
 export DJANGO_SETTINGS_MODULE='raspberrybot.settings'
-./bin/django-admin.py runserver 10.0.0.7:8000
+./bin/django-admin.py videoserver 0.0.0.0:8090 &
+videoserver_pid=$!
+./bin/django-admin.py runserver 0.0.0.0:8000
+
+kill $videoserver_pid 2>/dev/null
