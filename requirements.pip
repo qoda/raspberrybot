@@ -1,4 +1,4 @@
-Django>=1.6
+Django<1.7
 rpi.gpio==0.5.5
 git+https://github.com/simonmonk/raspirobotboard.git
 numpy==1.9.0
