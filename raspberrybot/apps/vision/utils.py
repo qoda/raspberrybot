@@ -26,9 +26,7 @@ def draw_detected_face(full_image, facial_features=None):
 
 
 def detect_faces(full_image):
-    detect_faces = os.path.exists(
-        os.path.join(settings.BASE_DIR, '.detect')
-    )
+    detect_faces = os.path.exists('/tmp/.detect')
     if detect_faces:
         small_image = full_image.scale(320, 240)
         return small_image.findHaarFeatures('face')

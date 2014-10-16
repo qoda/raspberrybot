@@ -8,7 +8,8 @@ except ImportError:
 from raspberrybot.decorators import json_response
 
 
-VALID_COMMANDS = ['forward', 'reverse', 'stop', 'left', 'right']
+VALID_DIRECTION_COMMANDS = ['forward', 'reverse', 'stop', 'left', 'right']
+VALID_SETTING_COMMANDS = ['detect']
 
 
 class CommandView(generic.View):
@@ -17,16 +18,22 @@ class CommandView(generic.View):
     """
     @json_response
     def get(self, request, *args, **kwargs):
-        direction = kwargs.get('direction')
-        success = direction in VALID_COMMANDS
+        cmd = kwargs.get('cmd')
+        direction = cmd if cmd in VALID_DIRECTION_COMMANDS else None
+        setting = cmd if cmd in VALID_SETTING_COMMANDS else None
 
-        if success:
+        if direction:
             robot_control = raspirobotboard.RaspiRobot()
             getattr(robot_control, direction)()
 
+        if setting:
+            if setting == 'detect':
+                open('/tmp/.detect', 'a').close()
+
         return {
-            'success': success,
-            'direction': direction
+            'success': any([setting, direction]),
+            'direction': direction,
+            'setting': setting
         }
 
 command = CommandView.as_view()
