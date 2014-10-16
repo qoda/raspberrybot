@@ -1,3 +1,5 @@
+import os
+
 from django.views import generic
 
 try:
@@ -10,6 +12,8 @@ from raspberrybot.decorators import json_response
 
 VALID_DIRECTION_COMMANDS = ['forward', 'reverse', 'stop', 'left', 'right']
 VALID_SETTING_COMMANDS = ['detect']
+
+DETECT_FILE = "/tmp/.detect"
 
 
 class CommandView(generic.View):
@@ -28,7 +32,10 @@ class CommandView(generic.View):
 
         if setting:
             if setting == 'detect':
-                open('/tmp/.detect', 'a').close()
+                if os.path.exists(DETECT_FILE):
+                    os.remove(DETECT_FILE)
+                else:
+                    open(DETECT_FILE, 'a').close()
 
         return {
             'success': any([setting, direction]),
