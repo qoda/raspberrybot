@@ -23,11 +23,11 @@ setup(
         'git+https://github.com/simonmonk/raspirobotboard.git'
     ],
     install_requires=[
-        'Django>=1.6',
+        'Django<1.7',
         'rpi.gpio==0.5.5',
         'raspirobotboard==1.0',
-        'numpy==1.8.1',
-        'PIL==1.1.7',
+        'numpy==1.9.0',
+        'Pillow==2.6.1',
         'scipy==0.10.1',
         'pygame==1.9.1release',
         'SimpleCV==1.3'
