@@ -5,7 +5,8 @@ initKeyboardControls = function () {
     var command_map = {
         37: 'left',
         38: 'forward',
-        39: 'right'
+        39: 'right',
+        68: 'detect'
     };
 
     // execute command depending on the key pressed
