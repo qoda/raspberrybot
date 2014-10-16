@@ -1,7 +1,6 @@
 import os
 import time
 
-from django.conf import settings
 from SimpleCV import Camera, Color, DrawingLayer, JpegStreamer
 
 
@@ -49,7 +48,7 @@ def start_camera(host_camera, host, port):
         if count == 0:
             facial_features = None
 
-        draw_detected_face(facial_features, full_image)
+        draw_detected_face(full_image, facial_features)
 
         # save the image to the stream
         full_image.save(stream, quality=60)
