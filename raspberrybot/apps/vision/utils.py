@@ -35,25 +35,11 @@ def start_camera(host_camera, host, port):
     camera = Camera(host_camera, {"width": 640, "height": 480})
     stream = JpegStreamer("%s:%s" % (host, port))
 
-    count = 0
-    facial_features = None
     while True:
-        full_image = camera.getImage()
-
-        # detect faces every 10 frames
-        if count >= 10:
-            facial_features = detect_faces(full_image)
-            count = 0
-
-        if count == 0:
-            facial_features = None
-
-        draw_detected_face(full_image, facial_features)
 
         # save the image to the stream
+        full_image = camera.getImage()
         full_image.save(stream, quality=60)
 
         # ensure it sleeps for as long as the fps in this case 10 fps
         time.sleep(0.1)
-
-        count += 1
