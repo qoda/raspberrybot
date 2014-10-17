@@ -1,4 +1,3 @@
-import os
 import time
 
 from SimpleCV import Camera, Color, DrawingLayer, JpegStreamer
@@ -37,7 +36,7 @@ def start_camera(host_camera, host, port):
 
         # save the image to the stream
         full_image = camera.getImage()
-        full_image.save(stream, quality=60)
+        full_image.save(stream)
 
         # ensure it sleeps for as long as the fps in this case 10 fps
         time.sleep(0.1)
