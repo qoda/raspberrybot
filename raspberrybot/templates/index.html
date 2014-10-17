@@ -4,6 +4,7 @@
 
 {% block content %}
     <div class="row centre-box">
+        <img src="http://{{ request.META.HTTP_HOST|slice:"-5" }}:8090/stream">
         <p><small>Use the arrow keys to contol Rog.</small></p>
     </div>
 {% endblock content %}
